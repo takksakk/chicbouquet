@@ -31,6 +31,7 @@
         class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
         role="region"
         aria-label="{{ 'sections.header.announcement' | t }}"
+        {% if section.settings.textColumn %}style="justify-content: flex-start;"{% endif %}
         {{ block.shopify_attributes }}
       >
         {%- if section.blocks.first.settings.text != blank -%}
@@ -221,6 +222,12 @@
     "groups": ["header"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "textColumn",
+      "label": "テキスト左寄せ",
+      "default": true
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
