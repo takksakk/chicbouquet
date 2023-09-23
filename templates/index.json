@@ -1,5 +1,14 @@
 {
   "sections": {
+    "b898a4c7-2d94-4554-8dd9-08bdb26d9c6f": {
+      "type": "custom-slideshow",
+      "settings": {
+        "margin-top": 0,
+        "margin-bottom": 0,
+        "margin-top__pc": 0,
+        "margin-bottom__pc": 0
+      }
+    },
     "c22b76a2-31c1-4e12-a9ab-d3c21b57fbdd": {
       "type": "slideshow",
       "blocks": {
@@ -177,6 +186,7 @@
     }
   },
   "order": [
+    "b898a4c7-2d94-4554-8dd9-08bdb26d9c6f",
     "c22b76a2-31c1-4e12-a9ab-d3c21b57fbdd",
     "a850b6b9-f269-495a-abf8-80c0ff1d4a5e",
     "a55ff930-5b8a-45e5-a778-e32cc29833ab",
