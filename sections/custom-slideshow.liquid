@@ -1,0 +1,143 @@
+{% style %}
+
+.swiper-slide img {
+  height: auto;
+  width: 100%;
+}
+
+{% endstyle %}
+
+<script>
+  const swiper = new Swiper(".swiper", {});
+</script>
+
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="https://junpei-sugiyama.com/wp-content/uploads/2021/01/dog01.jpg" alt="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://junpei-sugiyama.com/wp-content/uploads/2021/01/dog02.jpg" alt="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://junpei-sugiyama.com/wp-content/uploads/2021/01/dog03.jpg" alt="" />
+    </div>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+    {
+    "name": "custom_slideShow",
+    "tag": "section",
+    "class": "custom_slideShow",
+    "settings":[
+        {
+            "type": "image_picker",
+            "id": "img-pc01",
+            "label": "PC画面幅の画像【1枚目】"
+        },
+        {
+            "type": "image_picker",
+            "id": "img-sp01",
+            "label": "スマホ画面幅の画像【1枚目】"
+        },
+        {
+            "type": "image_picker",
+            "id": "img-pc02",
+            "label": "PC画面幅の画像【2枚目】"
+        },
+        {
+            "type": "image_picker",
+            "id": "img-sp02",
+            "label": "スマホ画面幅の画像【2枚目】"
+        },
+        {
+            "type": "image_picker",
+            "id": "img-pc03",
+            "label": "PC画面幅の画像【3枚目】"
+        },
+        {
+            "type": "image_picker",
+            "id": "img-sp03",
+            "label": "スマホ画面幅の画像【3枚目】"
+        },
+
+        {
+            "type": "range",
+            "id": "margin-top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "上部余白(スマホ画面幅)",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "margin-bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "下部余白(スマホ画面幅)",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "margin-top__pc",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "上部余白(PC画面幅)",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "margin-bottom__pc",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "下部余白(PC画面幅)",
+            "default": 0
+        }    
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "テキスト",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "text",
+                    "default": "ここにテキストが挿入されます",
+                    "label": "テキスト"
+                },
+                {
+                    "type": "textarea",
+                    "id": "font-family",
+                    "default": "游明朝",
+                    "label": "タイトルのフォントの種類を記載"
+                },
+                {
+                "type": "color",
+                "id": "mainVisual-color",
+                "label": "文字の色を指定"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "custom_slideShow"
+        }
+    ]
+    }
+{% endschema %}
+

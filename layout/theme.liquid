@@ -47,10 +47,8 @@
       @font-face {
         font-family: "SeoulHangang";
         src: url("https://cdn.shopify.com/s/files/1/0828/7653/1003/files/SeoulHangang-Medium.woff?v=1695080605") format("woff");
-        font-weight: normal;
         font-display: swap;
       }
-
 
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
@@ -91,7 +89,6 @@
 
       :root {
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-        --font-body-family: 'SeoulHangang', sans-serif;
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};

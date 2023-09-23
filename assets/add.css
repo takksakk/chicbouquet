@@ -2,9 +2,20 @@
 	font    
 ===================================*/
 
-@font-face {
-	font-family: "SeoulHangang";
-	src: url("https://cdn.shopify.com/s/files/1/0828/7653/1003/files/SeoulHangang-Medium.ttf?v=1695079430") format("truetype");
-	font-weight: normal;
-	font-display: swap;
+.header__menu-item {
+	font-family: var(--font-heading-family);
+}
+
+
+/* ==================================
+	c_blog-post
+===================================*/
+
+.c_blog-post .image-with-text__media {
+	border: none;
+}
+
+.c_blog-post .image-with-text__media img {
+	width: 275px;
+	height: 275px;
 }
