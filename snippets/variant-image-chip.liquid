@@ -1,0 +1,47 @@
+{% assign variant_chip_control = settings.variant_chip_control %}
+{% assign seen_imgs = '' %}
+
+<div class="card__variant_images flbox">
+  {%- for option in card_product.options_with_values limit: 10 -%}
+    {%- for value in option.values -%}
+      {% assign now_option_name = value %}
+      {%- for variant in card_product.variants -%}
+        {% unless seen_imgs contains variant.image.src %}
+          {% assign now_value = variant.option1 %}
+          {% case value %}
+            {% when now_value %}
+              {%- if variant.metafields.custom.color != blank and settings.variant_chip_control != 'image' -%}
+                <div class="card__variant_chips card__variant_chips_{{ section.id | remove: "template--" | remove: "product-grid" }}_{{ card_product.id }} flbox">
+                  <div class="card__variant_chips_image">
+                    <img
+                      style="background-color:{{ variant.metafields.custom.color }}"
+                      class="card__variant_chips_color chips_image_thumb chips_image_{{ card_product.id }}{% if forloop.index == 1 %} current{%- endif -%}"
+                      data-productimage="{{ variant.image.src | image_url: width: 800 }}"
+                      width="30"
+                      height="30"
+                    >
+                    {% assign seen_imgs = seen_imgs | append: ',' | append: variant.image.src %}
+                  </div>
+                </div>
+              {% elsif variant.image.src != blank and settings.variant_chip_control != 'color' %}
+                <div class="card__variant_chips card__variant_chips_{{ section.id | remove: "template--" | remove: "product-grid" }}_{{ card_product.id }} flbox">
+                  <div class="card__variant_chips_image">
+                    <img
+                      src="{{ variant.image.src | image_url: width: 60 }}"
+                      width="60"
+                      height="60"
+                      alt="{{ now_option_name }}"
+                      class="chips_image_thumb chips_image_{{ card_product.id }}{% if forloop.index == 1 %} current{%- endif -%}"
+                      data-productimage="{{ variant.image.src | image_url: width: 800 }}"
+                    >
+                    {% assign seen_imgs = seen_imgs | append: ',' | append: variant.image.src %}
+                  </div>
+                </div>
+              {%- endif -%}
+          {% endcase %}
+        {% endunless %}
+      {%- endfor -%}
+    {%- endfor -%}
+  {%- endfor -%}
+</div>
+

@@ -6,6 +6,50 @@
 	font-family: var(--font-heading-family);
 }
 
+/* ==================================
+	variant-chips    
+===================================*/
+
+.card__variant_images {
+    margin-bottom: 15px;
+	display: flex;
+}
+
+.card__variant_chips_image {
+    width: 30px;
+    margin: 1px 4px 4px 1px;
+    cursor: pointer;
+}
+
+h3.card__heading {
+    font-size: 14px;
+}
+
+.chips_image_thumb {
+}
+
+.chips_image_thumb.current {
+    border: 1px solid currentColor;
+}
+
+
+
+/* ==================================
+	c_featured-collection    
+===================================*/
+
+.c_featured-collection .card__media .media img {
+	border-radius: 200px 200px 0px 0px;
+}
+
+.c_featured-collection .card__information {
+	text-align: center;
+}
+
+.c_featured-collection .card-information {
+	text-align: center;
+}
+
 
 /* ==================================
 	c_blog-post
@@ -19,3 +63,4 @@
 	width: 275px;
 	height: 275px;
 }
+
