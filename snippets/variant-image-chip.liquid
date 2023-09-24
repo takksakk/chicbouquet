@@ -1,7 +1,7 @@
 {% assign variant_chip_control = settings.variant_chip_control %}
 {% assign seen_imgs = '' %}
 
-<div class="card__variant_images flbox">
+<div class="card__variant_images">
   {%- for option in card_product.options_with_values limit: 10 -%}
     {%- for value in option.values -%}
       {% assign now_option_name = value %}
@@ -13,7 +13,7 @@
               {%- if variant.metafields.custom.color != blank and settings.variant_chip_control != 'image' -%}
                 <div class="card__variant_chips card__variant_chips_{{ section.id | remove: "template--" | remove: "product-grid" }}_{{ card_product.id }} flbox">
                   <div class="card__variant_chips_image">
-                    <img
+                    <span
                       style="background-color:{{ variant.metafields.custom.color }}"
                       class="card__variant_chips_color chips_image_thumb chips_image_{{ card_product.id }}{% if forloop.index == 1 %} current{%- endif -%}"
                       data-productimage="{{ variant.image.src | image_url: width: 800 }}"
@@ -23,7 +23,7 @@
                     {% assign seen_imgs = seen_imgs | append: ',' | append: variant.image.src %}
                   </div>
                 </div>
-              {% elsif variant.image.src != blank and settings.variant_chip_control != 'color' %}
+              {% comment %} {% elsif variant.image.src != blank and settings.variant_chip_control != 'color' %}
                 <div class="card__variant_chips card__variant_chips_{{ section.id | remove: "template--" | remove: "product-grid" }}_{{ card_product.id }} flbox">
                   <div class="card__variant_chips_image">
                     <img
@@ -36,7 +36,7 @@
                     >
                     {% assign seen_imgs = seen_imgs | append: ',' | append: variant.image.src %}
                   </div>
-                </div>
+                </div> {% endcomment %}
               {%- endif -%}
           {% endcase %}
         {% endunless %}

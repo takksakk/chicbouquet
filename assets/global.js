@@ -1258,28 +1258,29 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define('product-recommendations', ProductRecommendations);
 
-document.addEventListener('DOMContentLoaded', function () {
 
-  // カラースウォッチまたは画像要素を取得
-  var variantChips = document.querySelectorAll('.card__variant_chips_image img');
-  
-  // 各要素に対してクリックイベントリスナーを設定
-  variantChips.forEach(function(chip) {
-      chip.addEventListener('click', function(e) {
+// variant image && color select 
 
-          // クリックされた要素のdata-productimage属性から画像URLを取得
-          var newImageUrl = e.currentTarget.getAttribute('data-productimage');
+document.addEventListener('DOMContentLoaded', function() {
+  var chips = document.querySelectorAll('.card__variant_chips');
 
-          // 新しい画像URLを主要な商品画像のsrc属性に設定
-          var mainProductImage = document.querySelector('.main-product-image-selector'); // 主要な商品画像要素のセレクターを正確に指定してください。
-          if(mainProductImage) mainProductImage.setAttribute('src', newImageUrl);
-
-          // オプション：選択されたスウォッチまたは画像に対して「選択された」スタイルを設定
-          variantChips.forEach(function(chip) {
-              chip.classList.remove('selected'); // すべての要素から'selected'クラスを削除
-          });
-          e.currentTarget.classList.add('selected'); // クリックされた要素に'selected'クラスを追加
+  chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+          // span タグの data-productimage 属性を取得する
+          var imgData = chip.querySelector('span').getAttribute('data-productimage');
+          
+          if (imgData) {
+              // .card__inner クラスを持つ最も近い祖先要素を探す
+              var parent = chip.closest('.card-wrapper'); // .card__inner を .card-wrapper に変更しました。
+              if (parent) {
+                  // .card__media > .media > img セレクタに一致する最初の子孫要素を探す
+                  var mediaImg = parent.querySelector('.card__media > .media > img');
+                  if (mediaImg) mediaImg.setAttribute('srcset', imgData); // srcset 属性を imgData で設定する
+              }
+          }
       });
   });
-
 });
+
+
+

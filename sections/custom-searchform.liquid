@@ -1,0 +1,115 @@
+<form action="/search" method="get" role="search" class="search search-modal__form">
+    <div class="field">
+        <input class="search__input field__input" id="Search-In-Modal" type="search" name="q" value=""
+            placeholder="Search" role="combobox" aria-expanded="false" aria-owns="predictive-search-results"
+            aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off"
+            autocomplete="off" autocapitalize="off" spellcheck="false">
+        <label class="field__label" for="Search-In-Modal">Search</label>
+        <input type="hidden" name="options[prefix]" value="last">
+        <button type="reset" class="reset__button field__button hidden" aria-label="Clear search term">
+            <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                <use xlink:href="#icon-reset">
+                </use>
+            </svg>
+        </button>
+        <button class="search__button field__button" aria-label="Search">
+            <svg class="icon icon-search" aria-hidden="true" focusable="false">
+                <use href="#icon-search">
+                </use>
+            </svg>
+        </button>
+    </div>
+    <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search="">
+        <div class="predictive-search__loading-state">
+            <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+</form>
+
+
+{% comment %} <div class="section-{{ section.id }} {% if section.settings.section_class_plus != blank %} {{ section.settings.section_class_plus | handleize }}{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+    <div class="search-wrap">
+        <!-- フォームのaction属性を「/collections/all」に設定 -->
+        <form action="/collections/all" method="get" role="search" class="search search-header__form small-hide">
+          <!-- 既存の検索バー -->
+          <input type="text" value="" name="q" placeholder="キーワードで検索する">
+      
+          <!-- 新しいフィールド：在庫あり -->
+          <label for="availability">在庫あり</label>
+          <input id="availability" name="filter.v.availability" value="1" type="checkbox">
+      
+          <!-- 新しいフィールド：最低価格 -->
+          <label for="min-price">最低価格</label>
+          <input id="min-price" name="filter.v.price.gte" maxlength="9" type="tel">
+      
+          <!-- 新しいフィールド：最高価格 -->
+          <label for="max-price">最高価格</label>
+          <input id="max-price" name="filter.v.price.lte" maxlength="9" type="tel">
+      
+          <!-- 新しいフィールド：オプション（色） -->
+          <label for="option-color">カラー</label>
+          <input id="option-color" name="filter.v.option.color" value="レッド" type="checkbox">
+      
+          <!-- 新しいフィールド：ソート -->
+          <label for="sort-by">ソート</label>
+          <select id="sort-by" name="sort_by">
+            <option value="price-ascending">価格が安い順</option>
+            <option value="price-descending">価格が高い順</option>
+            <option value="created-descending">新着順</option>  <!-- 追加された項目 -->
+            <option value="created-ascending">古い順</option>  <!-- 追加された項目 -->
+          </select>
+      
+          <!-- 既存のサブミットボタン -->
+          <button type="submit" id="sds_submit" class="button button--typeA button--ds">絞り込んで検索</button>
+        </form>
+      </div>  </div>
+</div> {% endcomment %}
+
+
+
+
+<div style="width: 455px; height: 33px; margin: 0 auto; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex ">
+    {% for block in section.blocks %}
+        <div style="padding-left: 20px; padding-right: 20px; padding-top: 8px; padding-bottom: 8px; background: white; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border: 1px #2F5339 solid; justify-content: flex-start; align-items: flex-start; display: flex">
+            <div style="color: #2F5339; font-size: 14px; font-family: Noto Sans JP; font-weight: 400; letter-spacing: 0.36px; word-wrap: break-word">春</div>
+        </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+    {
+        "name": "c_search-form",
+        "class": "c_search-form",
+        "settings": [
+            {
+                "type": "link_list",
+                "id": "link_list",
+                "label": "リンク先"            
+            }
+        ],
+        "blocks": [
+            {
+                "type": "text",
+                "name": "text",
+                "settings": [
+                    {
+                        "type": "textarea",
+                        "id": "textarea",
+                        "label": "テキストエリア"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+            "name": "c_search-form"
+            }
+        ]
+    }
+{% endschema %}

@@ -1,4 +1,23 @@
 /* ==================================
+	utility    
+===================================*/
+
+.button-custom {
+	display: flex;
+	width: 140px;
+	height: 47px;
+	margin: 0 auto;
+	padding: 0px 30px;
+	color: #fff;
+	text-decoration: none;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px 20px 20px 0px;
+	background: var(--1, #2F5339);
+}
+
+
+/* ==================================
 	font    
 ===================================*/
 
@@ -11,25 +30,29 @@
 ===================================*/
 
 .card__variant_images {
-    margin-bottom: 15px;
-	display: flex;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 99;
+    border: none;
+    overflow: visible; /* 追加 */
+}
+
+.card__variant_chips {
+
 }
 
 .card__variant_chips_image {
-    width: 30px;
-    margin: 1px 4px 4px 1px;
     cursor: pointer;
 }
 
-h3.card__heading {
-    font-size: 14px;
-}
-
-.chips_image_thumb {
-}
-
-.chips_image_thumb.current {
-    border: 1px solid currentColor;
+.card__variant_chips_image span {
+	display: inline-block;
+	width: 16px;
+    height: 16px;
+    border-radius: 100%;
 }
 
 
@@ -62,5 +85,13 @@ h3.card__heading {
 .c_blog-post .image-with-text__media img {
 	width: 275px;
 	height: 275px;
+}
+
+/* ==================================
+	c_search-form    
+===================================*/
+
+.search-modal__form {
+	margin: 0 auto;
 }
 

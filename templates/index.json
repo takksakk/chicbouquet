@@ -83,6 +83,12 @@
         "padding_bottom": 36
       }
     },
+    "4b932201-937b-4867-8793-4ade11eee9cd": {
+      "type": "custom-searchform",
+      "settings": {
+        "link_list": ""
+      }
+    },
     "a55ff930-5b8a-45e5-a778-e32cc29833ab": {
       "type": "custom-image-with-text",
       "blocks": {
@@ -179,6 +185,7 @@
   "order": [
     "c22b76a2-31c1-4e12-a9ab-d3c21b57fbdd",
     "a850b6b9-f269-495a-abf8-80c0ff1d4a5e",
+    "4b932201-937b-4867-8793-4ade11eee9cd",
     "a55ff930-5b8a-45e5-a778-e32cc29833ab",
     "105971a4-8a23-452e-852d-37a178d83ae9"
   ]
