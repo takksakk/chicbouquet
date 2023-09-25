@@ -130,6 +130,12 @@
           "settings": {
             "collection": "ドライフラワー"
           }
+        },
+        "076f1e1d-da4e-41e3-a4da-7ed571a1a6b1": {
+          "type": "collection",
+          "settings": {
+            "collection": "インテリアグリーン"
+          }
         }
       },
       "block_order": [
@@ -139,7 +145,8 @@
         "449c1545-3581-49bb-9d06-0cd29191521f",
         "6f0d192e-f0db-49ee-a2ff-8324a6c912ec",
         "99f1522a-6bee-4757-b907-2d63d8a4b8cc",
-        "77850642-3666-4320-93f6-e8949b8baffb"
+        "77850642-3666-4320-93f6-e8949b8baffb",
+        "076f1e1d-da4e-41e3-a4da-7ed571a1a6b1"
       ],
       "settings": {
         "link_list": ""
