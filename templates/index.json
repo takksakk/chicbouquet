@@ -106,12 +106,40 @@
             "textarea": "ひまわり",
             "url": ""
           }
+        },
+        "449c1545-3581-49bb-9d06-0cd29191521f": {
+          "type": "collection",
+          "settings": {
+            "collection": "母の日ギフト"
+          }
+        },
+        "6f0d192e-f0db-49ee-a2ff-8324a6c912ec": {
+          "type": "collection",
+          "settings": {
+            "collection": "ブライダル"
+          }
+        },
+        "99f1522a-6bee-4757-b907-2d63d8a4b8cc": {
+          "type": "collection",
+          "settings": {
+            "collection": "花束"
+          }
+        },
+        "77850642-3666-4320-93f6-e8949b8baffb": {
+          "type": "collection",
+          "settings": {
+            "collection": "ドライフラワー"
+          }
         }
       },
       "block_order": [
         "245dd45b-8bd7-451b-878b-4687940c6735",
         "75cf321a-4d27-43f7-9508-b32b67639cbd",
-        "56049d9c-9ab4-4b23-b521-186caef77e4e"
+        "56049d9c-9ab4-4b23-b521-186caef77e4e",
+        "449c1545-3581-49bb-9d06-0cd29191521f",
+        "6f0d192e-f0db-49ee-a2ff-8324a6c912ec",
+        "99f1522a-6bee-4757-b907-2d63d8a4b8cc",
+        "77850642-3666-4320-93f6-e8949b8baffb"
       ],
       "settings": {
         "link_list": ""

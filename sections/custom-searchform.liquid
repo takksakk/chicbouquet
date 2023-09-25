@@ -1,10 +1,19 @@
+
+
+<h2 class="c_search-ttl">SEARCH<span>FLOWERで商品を検索して探してみてください。</span></h3>
+
 <form action="/search" method="get" role="search" class="search search-modal__form">
     <div class="field">
         <input class="search__input field__input" id="Search-In-Modal" type="search" name="q" value=""
             placeholder="Search" role="combobox" aria-expanded="false" aria-owns="predictive-search-results"
             aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off"
             autocomplete="off" autocapitalize="off" spellcheck="false">
-        <label class="field__label" for="Search-In-Modal">Search</label>
+        <label class="field__label" for="Search-In-Modal">
+            <svg class="icon icon-search" aria-hidden="true" focusable="false">
+                <use href="#icon-search"></use>
+            </svg>  
+            例：母の日、チューリップ、婚礼
+        </label>
         <input type="hidden" name="options[prefix]" value="last">
         <button type="reset" class="reset__button field__button hidden" aria-label="Clear search term">
             <svg class="icon icon-close" aria-hidden="true" focusable="false">
@@ -13,49 +22,40 @@
             </svg>
         </button>
         <button class="search__button field__button" aria-label="Search">
-            <svg class="icon icon-search" aria-hidden="true" focusable="false">
-                <use href="#icon-search">
-                </use>
-            </svg>
+            search
         </button>
     </div>
-    <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search="">
-        <div class="predictive-search__loading-state">
-            <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-            </svg>
-        </div>
-    </div>
 
-    <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
-
-    <h3>人気ワード</h3>
-    <ul style="display: flex gap: 30px;">
+    <ul class="field__list">
         {% for block in section.blocks %}
-            <li style="color: #2F5339; font-size: 14px; font-family: Noto Sans JP; font-weight: 400; letter-spacing: 0.36px; word-wrap: break-word" class="sds__hotword__{{ forloop.index }}">
-                <a href="{{- routes.search_url -}}?q={{- block.settings.textarea -}}">{{- block.settings.textarea -}}</a>
-            </li>
+            {% case block.type %}
+                {%- when 'text' -%}
+                    <li style="color: #2F5339; font-size: 14px; font-family: Noto Sans JP; font-weight: 400; letter-spacing: 0.36px; word-wrap: break-word" class="sds__hotword__{{ forloop.index }}">
+                        <a href="{{- routes.search_url -}}?q={{- block.settings.textarea -}}">{{- block.settings.textarea -}}</a>
+                    </li>
+            {% endcase %}
         {% endfor %}
     </ul>
-
-
-
-    <div class="sds__box--full">
-        {%- if section.settings.sds__availability -%}
-          <div class="sds__stock">
-            <input name="filter.v.availability" value="1" type="checkbox" id="stockCheck_{{ section.id }}">
-            <label for="stockCheck_{{ section.id }}">在庫のない商品を表示しない</label>
-          </div>
-        {%- endif -%}
-        <div class="sds__butonWrap">
-          <button type="submit" id="sds_submit" class="button button--typeA button--ds">
-            絞り込んで検索</button>
-          <button type="button" class="sds__clear button button--typeB">リセットする</button>
-        </div>
-        
-    </div>
 </form>
+
+<h3 class="c_search-subttl">SEARCH FROM CATEGORY</h3>
+
+<ul>
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'collection' %}
+                <li>
+                    <img                   
+                        src="{{ block.settings.collection.image | image_url: width: 1000 }}"                   
+                        alt="{{ block.settings.collection.title }}"                  
+                        loading= "lazy"                  
+                        width= "300"                  
+                        height= "160"                
+                    >
+                </li>
+        {% endcase %}
+    {% endfor %}
+</ul>
 
 
 {% comment %} <div class="section-{{ section.id }} {% if section.settings.section_class_plus != blank %} {{ section.settings.section_class_plus | handleize }}{% endif %} color-{{ section.settings.color_scheme }} gradient">
@@ -122,6 +122,17 @@
                         "type": "url",
                         "id": "url",
                         "label": "テキストリンク"
+                    }
+                ]
+            },
+            {
+                "type": "collection",
+                "name": "collection",
+                "settings": [
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "collection"
                     }
                 ]
             }
