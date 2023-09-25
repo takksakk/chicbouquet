@@ -85,6 +85,34 @@
     },
     "4b932201-937b-4867-8793-4ade11eee9cd": {
       "type": "custom-searchform",
+      "blocks": {
+        "245dd45b-8bd7-451b-878b-4687940c6735": {
+          "type": "text",
+          "settings": {
+            "textarea": "test",
+            "url": ""
+          }
+        },
+        "75cf321a-4d27-43f7-9508-b32b67639cbd": {
+          "type": "text",
+          "settings": {
+            "textarea": "test",
+            "url": ""
+          }
+        },
+        "56049d9c-9ab4-4b23-b521-186caef77e4e": {
+          "type": "text",
+          "settings": {
+            "textarea": "ひまわり",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "245dd45b-8bd7-451b-878b-4687940c6735",
+        "75cf321a-4d27-43f7-9508-b32b67639cbd",
+        "56049d9c-9ab4-4b23-b521-186caef77e4e"
+      ],
       "settings": {
         "link_list": ""
       }

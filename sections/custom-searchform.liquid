@@ -29,6 +29,32 @@
     </div>
 
     <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+
+    <h3>人気ワード</h3>
+    <ul style="display: flex gap: 30px;">
+        {% for block in section.blocks %}
+            <li style="color: #2F5339; font-size: 14px; font-family: Noto Sans JP; font-weight: 400; letter-spacing: 0.36px; word-wrap: break-word" class="sds__hotword__{{ forloop.index }}">
+                <a href="{{- routes.search_url -}}?q={{- block.settings.textarea -}}">{{- block.settings.textarea -}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+
+    <div class="sds__box--full">
+        {%- if section.settings.sds__availability -%}
+          <div class="sds__stock">
+            <input name="filter.v.availability" value="1" type="checkbox" id="stockCheck_{{ section.id }}">
+            <label for="stockCheck_{{ section.id }}">在庫のない商品を表示しない</label>
+          </div>
+        {%- endif -%}
+        <div class="sds__butonWrap">
+          <button type="submit" id="sds_submit" class="button button--typeA button--ds">
+            絞り込んで検索</button>
+          <button type="button" class="sds__clear button button--typeB">リセットする</button>
+        </div>
+        
+    </div>
 </form>
 
 
@@ -71,17 +97,6 @@
       </div>  </div>
 </div> {% endcomment %}
 
-
-
-
-<div style="width: 455px; height: 33px; margin: 0 auto; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex ">
-    {% for block in section.blocks %}
-        <div style="padding-left: 20px; padding-right: 20px; padding-top: 8px; padding-bottom: 8px; background: white; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border: 1px #2F5339 solid; justify-content: flex-start; align-items: flex-start; display: flex">
-            <div style="color: #2F5339; font-size: 14px; font-family: Noto Sans JP; font-weight: 400; letter-spacing: 0.36px; word-wrap: break-word">春</div>
-        </div>
-    {% endfor %}
-</div>
-
 {% schema %}
     {
         "name": "c_search-form",
@@ -101,7 +116,12 @@
                     {
                         "type": "textarea",
                         "id": "textarea",
-                        "label": "テキストエリア"
+                        "label": "リンクのテキスト"
+                    },
+                    {
+                        "type": "url",
+                        "id": "url",
+                        "label": "テキストリンク"
                     }
                 ]
             }
