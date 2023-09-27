@@ -136,6 +136,13 @@
           "settings": {
             "collection": "インテリアグリーン"
           }
+        },
+        "833e4eba-f9e6-41ae-8624-45d5e09f1b05": {
+          "type": "text",
+          "settings": {
+            "textarea": "夏",
+            "url": ""
+          }
         }
       },
       "block_order": [
@@ -146,7 +153,8 @@
         "6f0d192e-f0db-49ee-a2ff-8324a6c912ec",
         "99f1522a-6bee-4757-b907-2d63d8a4b8cc",
         "77850642-3666-4320-93f6-e8949b8baffb",
-        "076f1e1d-da4e-41e3-a4da-7ed571a1a6b1"
+        "076f1e1d-da4e-41e3-a4da-7ed571a1a6b1",
+        "833e4eba-f9e6-41ae-8624-45d5e09f1b05"
       ],
       "settings": {
         "link_list": ""
