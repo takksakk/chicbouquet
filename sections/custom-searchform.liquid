@@ -1,6 +1,6 @@
 <section class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
 
-    <div class="c_search__inner">
+    <div class="c_search__inner page-width">
         <h2 class="c_search-ttl">SEARCH<span>FLOWERで商品を検索して探してみてください。</span></h3>
 
             <form action="/search" method="get" role="search" class="search search-modal__form">
@@ -13,7 +13,9 @@
                         <svg class="icon icon-search" aria-hidden="true" focusable="false">
                             <use href="#icon-search"></use>
                         </svg>  
-                        例：母の日、チューリップ、婚礼
+                        <div class="field__labe__text">
+                            例：母の日、チューリップ、婚礼
+                        </div>
                     </label>
                     <input type="hidden" name="options[prefix]" value="last">
                     <button type="reset" class="reset__button field__button hidden" aria-label="Clear search term">
@@ -30,9 +32,9 @@
                 <ul class="field__list">
                     {% for block in section.blocks %}
                         {% case block.type %}
-                            {%- when 'text' -%}
+                            {%- when 'keyword' -%}
                                 <li style="color: #2F5339; font-size: 14px; font-family: Noto Sans JP; font-weight: 400; letter-spacing: 0.36px; word-wrap: break-word" class="sds__hotword__{{ forloop.index }}">
-                                    <a href="{{- routes.search_url -}}?q={{- block.settings.textarea -}}">{{- block.settings.textarea -}}</a>
+                                    <a href="{{- routes.search_url -}}?q={{- block.settings.link_text -}}">{{- block.settings.link_text -}}</a>
                                 </li>
                         {% endcase %}
                     {% endfor %}
@@ -72,37 +74,37 @@
 </section>
 
 <script>
-const swiper = new Swiper(".c_search-swiper", {
-  loop: true, // ループ
-  autoplay: {
-    // 自動再生
-    delay: 3000, // 1.5秒後に次のスライド（初期値：3000）
-    disableOnInteraction: false, // 矢印をクリックしても自動再生を止めない
-  },
-  // ページネーション
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true, // クリック有効化
-  },
-  // 前後の矢印
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  // スクロールバー
-  scrollbar: {
-    el: ".swiper-scrollbar",
-  },
-  // スライドの表示枚数
-  slidesPerView: 1,
-  spaceBetween: 25,
-  breakpoints: {
-    // スライドの表示枚数：500px以上の場合
-    500: {
-      slidesPerView: 4,
-    },
-  },
-});
+    const swiper = new Swiper(".c_search-swiper", {
+        loop: true, // ループ
+        autoplay: {
+            // 自動再生
+            delay: 3000, // 1.5秒後に次のスライド（初期値：3000）
+            disableOnInteraction: false, // 矢印をクリックしても自動再生を止めない
+        },
+        // ページネーション
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true, // クリック有効化
+        },
+        // 前後の矢印
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        // スクロールバー
+        scrollbar: {
+            el: ".swiper-scrollbar",
+        },
+        // スライドの表示枚数
+        slidesPerView: 1.4,
+        spaceBetween: 25,
+        breakpoints: {
+            // スライドの表示枚数：500px以上の場合
+            500: {
+                slidesPerView: 4,
+            },
+        },
+    });
 </script>
 
 {% schema %}
@@ -111,19 +113,58 @@ const swiper = new Swiper(".c_search-swiper", {
         "class": "c_search-form",
         "settings": [
             {
-                "type": "link_list",
-                "id": "link_list",
-                "label": "リンク先"            
+                "type": "header",
+                "content": "t:sections.all.padding.section_padding_heading"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "t:sections.all.padding.padding_top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_top_sp",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "t:sections.all.padding.padding_top_sp",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "t:sections.all.padding.padding_bottom",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom_sp",
+                "min": 0,
+                "max": 100,
+                "step": 4,
+                "unit": "px",
+                "label": "t:sections.all.padding.padding_bottom_sp",
+                "default": 36
             }
         ],
         "blocks": [
             {
-                "type": "text",
-                "name": "text",
+                "type": "keyword",
+                "name": "キーワード",
                 "settings": [
                     {
-                        "type": "textarea",
-                        "id": "textarea",
+                        "type": "text",
+                        "id": "link_text",
                         "label": "リンクのテキスト"
                     },
                     {
