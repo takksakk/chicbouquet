@@ -1,101 +1,109 @@
+<section class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
 
+    <div class="c_search__inner">
+        <h2 class="c_search-ttl">SEARCH<span>FLOWERで商品を検索して探してみてください。</span></h3>
 
-<h2 class="c_search-ttl">SEARCH<span>FLOWERで商品を検索して探してみてください。</span></h3>
-
-<form action="/search" method="get" role="search" class="search search-modal__form">
-    <div class="field">
-        <input class="search__input field__input" id="Search-In-Modal" type="search" name="q" value=""
-            placeholder="Search" role="combobox" aria-expanded="false" aria-owns="predictive-search-results"
-            aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off"
-            autocomplete="off" autocapitalize="off" spellcheck="false">
-        <label class="field__label" for="Search-In-Modal">
-            <svg class="icon icon-search" aria-hidden="true" focusable="false">
-                <use href="#icon-search"></use>
-            </svg>  
-            例：母の日、チューリップ、婚礼
-        </label>
-        <input type="hidden" name="options[prefix]" value="last">
-        <button type="reset" class="reset__button field__button hidden" aria-label="Clear search term">
-            <svg class="icon icon-close" aria-hidden="true" focusable="false">
-                <use xlink:href="#icon-reset">
-                </use>
-            </svg>
-        </button>
-        <button class="search__button field__button" aria-label="Search">
-            search
-        </button>
+            <form action="/search" method="get" role="search" class="search search-modal__form">
+                <div class="field">
+                    <input class="search__input field__input" id="Search-In-Modal" type="search" name="q" value=""
+                        placeholder="Search" role="combobox" aria-expanded="false" aria-owns="predictive-search-results"
+                        aria-controls="predictive-search-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off"
+                        autocomplete="off" autocapitalize="off" spellcheck="false">
+                    <label class="field__label" for="Search-In-Modal">
+                        <svg class="icon icon-search" aria-hidden="true" focusable="false">
+                            <use href="#icon-search"></use>
+                        </svg>  
+                        例：母の日、チューリップ、婚礼
+                    </label>
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <button type="reset" class="reset__button field__button hidden" aria-label="Clear search term">
+                        <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                            <use xlink:href="#icon-reset">
+                            </use>
+                        </svg>
+                    </button>
+                    <button class="search__button field__button" aria-label="Search">
+                        search
+                    </button>
+                </div>
+            
+                <ul class="field__list">
+                    {% for block in section.blocks %}
+                        {% case block.type %}
+                            {%- when 'text' -%}
+                                <li style="color: #2F5339; font-size: 14px; font-family: Noto Sans JP; font-weight: 400; letter-spacing: 0.36px; word-wrap: break-word" class="sds__hotword__{{ forloop.index }}">
+                                    <a href="{{- routes.search_url -}}?q={{- block.settings.textarea -}}">{{- block.settings.textarea -}}</a>
+                                </li>
+                        {% endcase %}
+                    {% endfor %}
+                </ul>
+            </form>
     </div>
 
-    <ul class="field__list">
+
+<h3 class="c_search-subttl">SEARCH FROM CATEGORY</h3>
+
+<div class="swiper c_search-swiper">
+    <ul class="collection-list swiper-wrapper">
         {% for block in section.blocks %}
             {% case block.type %}
-                {%- when 'text' -%}
-                    <li style="color: #2F5339; font-size: 14px; font-family: Noto Sans JP; font-weight: 400; letter-spacing: 0.36px; word-wrap: break-word" class="sds__hotword__{{ forloop.index }}">
-                        <a href="{{- routes.search_url -}}?q={{- block.settings.textarea -}}">{{- block.settings.textarea -}}</a>
+                {% when 'collection' %}
+                    <li class="collection-item swiper-slide">
+                        <a href="{{ block.settings.collection.url }}">
+                            <div class="collection-item__imageWrap">
+                                <img                   
+                                src="{{ block.settings.collection.image | image_url: width: 1000 }}"                   
+                                alt="{{ block.settings.collection.title }}"                  
+                                loading= "lazy"                  
+                                width= "280"                  
+                                height= "180"                
+                                >
+                                <span class="collection-item__text">{{ block.settings.collection.title }}</span>
+                            </div>
+                        </a>
                     </li>
             {% endcase %}
         {% endfor %}
     </ul>
-</form>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>  
 
-<h3 class="c_search-subttl">SEARCH FROM CATEGORY</h3>
+</section>
 
-<ul>
-    {% for block in section.blocks %}
-        {% case block.type %}
-            {% when 'collection' %}
-                <li>
-                    <img                   
-                        src="{{ block.settings.collection.image | image_url: width: 1000 }}"                   
-                        alt="{{ block.settings.collection.title }}"                  
-                        loading= "lazy"                  
-                        width= "300"                  
-                        height= "160"                
-                    >
-                </li>
-        {% endcase %}
-    {% endfor %}
-</ul>
-
-
-{% comment %} <div class="section-{{ section.id }} {% if section.settings.section_class_plus != blank %} {{ section.settings.section_class_plus | handleize }}{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="section-{{ section.id }}-padding">
-    <div class="search-wrap">
-        <!-- フォームのaction属性を「/collections/all」に設定 -->
-        <form action="/collections/all" method="get" role="search" class="search search-header__form small-hide">
-          <!-- 既存の検索バー -->
-          <input type="text" value="" name="q" placeholder="キーワードで検索する">
-      
-          <!-- 新しいフィールド：在庫あり -->
-          <label for="availability">在庫あり</label>
-          <input id="availability" name="filter.v.availability" value="1" type="checkbox">
-      
-          <!-- 新しいフィールド：最低価格 -->
-          <label for="min-price">最低価格</label>
-          <input id="min-price" name="filter.v.price.gte" maxlength="9" type="tel">
-      
-          <!-- 新しいフィールド：最高価格 -->
-          <label for="max-price">最高価格</label>
-          <input id="max-price" name="filter.v.price.lte" maxlength="9" type="tel">
-      
-          <!-- 新しいフィールド：オプション（色） -->
-          <label for="option-color">カラー</label>
-          <input id="option-color" name="filter.v.option.color" value="レッド" type="checkbox">
-      
-          <!-- 新しいフィールド：ソート -->
-          <label for="sort-by">ソート</label>
-          <select id="sort-by" name="sort_by">
-            <option value="price-ascending">価格が安い順</option>
-            <option value="price-descending">価格が高い順</option>
-            <option value="created-descending">新着順</option>  <!-- 追加された項目 -->
-            <option value="created-ascending">古い順</option>  <!-- 追加された項目 -->
-          </select>
-      
-          <!-- 既存のサブミットボタン -->
-          <button type="submit" id="sds_submit" class="button button--typeA button--ds">絞り込んで検索</button>
-        </form>
-      </div>  </div>
-</div> {% endcomment %}
+<script>
+const swiper = new Swiper(".c_search-swiper", {
+  loop: true, // ループ
+  autoplay: {
+    // 自動再生
+    delay: 3000, // 1.5秒後に次のスライド（初期値：3000）
+    disableOnInteraction: false, // 矢印をクリックしても自動再生を止めない
+  },
+  // ページネーション
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true, // クリック有効化
+  },
+  // 前後の矢印
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  // スクロールバー
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+  // スライドの表示枚数
+  slidesPerView: 1,
+  spaceBetween: 25,
+  breakpoints: {
+    // スライドの表示枚数：500px以上の場合
+    500: {
+      slidesPerView: 4,
+    },
+  },
+});
+</script>
 
 {% schema %}
     {
