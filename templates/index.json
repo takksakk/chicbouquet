@@ -86,31 +86,38 @@
     "4b932201-937b-4867-8793-4ade11eee9cd": {
       "type": "custom-searchform",
       "blocks": {
-        "833e4eba-f9e6-41ae-8624-45d5e09f1b05": {
-          "type": "text",
+        "cf68b819-3a15-41b1-9600-120749d082cb": {
+          "type": "keyword",
           "settings": {
-            "textarea": "夏",
+            "link_text": "夏",
             "url": ""
           }
         },
-        "245dd45b-8bd7-451b-878b-4687940c6735": {
-          "type": "text",
+        "60cb7e28-f804-4033-9348-09658ba0a6b3": {
+          "type": "keyword",
           "settings": {
-            "textarea": "ブライダル",
+            "link_text": "マリーゴールド",
             "url": ""
           }
         },
-        "75cf321a-4d27-43f7-9508-b32b67639cbd": {
-          "type": "text",
+        "46d25c18-f34b-429b-8b46-f33f4cba5c70": {
+          "type": "keyword",
           "settings": {
-            "textarea": "プロポーズ",
+            "link_text": "プロポーズ",
             "url": ""
           }
         },
-        "56049d9c-9ab4-4b23-b521-186caef77e4e": {
-          "type": "text",
+        "557a0a57-49a9-452a-b612-d83a9b590f02": {
+          "type": "keyword",
           "settings": {
-            "textarea": "ひまわり",
+            "link_text": "チューリップ",
+            "url": ""
+          }
+        },
+        "4912c0f5-03e6-4c24-923f-009cf2e87394": {
+          "type": "keyword",
+          "settings": {
+            "link_text": "ギフト",
             "url": ""
           }
         },
@@ -146,10 +153,11 @@
         }
       },
       "block_order": [
-        "833e4eba-f9e6-41ae-8624-45d5e09f1b05",
-        "245dd45b-8bd7-451b-878b-4687940c6735",
-        "75cf321a-4d27-43f7-9508-b32b67639cbd",
-        "56049d9c-9ab4-4b23-b521-186caef77e4e",
+        "cf68b819-3a15-41b1-9600-120749d082cb",
+        "60cb7e28-f804-4033-9348-09658ba0a6b3",
+        "46d25c18-f34b-429b-8b46-f33f4cba5c70",
+        "557a0a57-49a9-452a-b612-d83a9b590f02",
+        "4912c0f5-03e6-4c24-923f-009cf2e87394",
         "449c1545-3581-49bb-9d06-0cd29191521f",
         "6f0d192e-f0db-49ee-a2ff-8324a6c912ec",
         "99f1522a-6bee-4757-b907-2d63d8a4b8cc",
@@ -157,7 +165,10 @@
         "076f1e1d-da4e-41e3-a4da-7ed571a1a6b1"
       ],
       "settings": {
-        "link_list": ""
+        "padding_top": 36,
+        "padding_top_sp": 36,
+        "padding_bottom": 36,
+        "padding_bottom_sp": 36
       }
     },
     "a55ff930-5b8a-45e5-a778-e32cc29833ab": {
