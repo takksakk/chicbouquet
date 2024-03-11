@@ -806,6 +806,109 @@
         "name": "特集コレクション"
       }
     },
+    "featured-collection_c": {
+      "name": "特集コレクション_カスタム",
+      "settings": {
+        "title": {
+          "label": "見出し"
+        },
+        "collection": {
+          "label": "コレクション"
+        },
+        "products_to_show": {
+          "label": "表示する最大の商品"
+        },
+        "show_view_all": {
+          "label": "コレクションに表示されているよりも多くの商品がある場合、「すべてを表示」を有効にします"
+        },
+        "header": {
+          "content": "商品カード"
+        },
+        "image_ratio": {
+          "label": "画像比",
+          "options__1": {
+            "label": "画像に合わせる"
+          },
+          "options__2": {
+            "label": "ポートレート"
+          },
+          "options__3": {
+            "label": "正方形"
+          }
+        },
+        "show_secondary_image": {
+          "label": "マウスオーバー時に2番目の画像を表示する"
+        },
+        "show_vendor": {
+          "label": "販売元を表示する"
+        },
+        "show_rating": {
+          "label": "商品の評価を表示",
+          "info": "評価を表示するには、商品評価アプリを追加します。[詳しくはこちら](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-collection-show-product-rating)"
+        },
+        "enable_quick_buy": {
+          "label": "「クイック追加」ボタンを有効にする",
+          "info": "ポップアップやドロワーカートのタイプに最適です。"
+        },
+        "columns_desktop": {
+          "label": "デスクトップの列数"
+        },
+        "description": {
+          "label": "説明"
+        },
+        "show_description": {
+          "label": "管理画面からコレクションの説明を表示する"
+        },
+        "description_style": {
+          "label": "説明のスタイル",
+          "options__1": {
+            "label": "本文"
+          },
+          "options__2": {
+            "label": "サブタイトル"
+          },
+          "options__3": {
+            "label": "大文字"
+          }
+        },
+        "view_all_style": {
+          "options__1": {
+            "label": "リンク"
+          },
+          "options__2": {
+            "label": "アウトラインボタン"
+          },
+          "options__3": {
+            "label": "ソリッドカラーのボタン"
+          },
+          "label": "「すべてを表示」のスタイル"
+        },
+        "enable_desktop_slider": {
+          "label": "デスクトップでカルーセルを有効にする"
+        },
+        "full_width": {
+          "label": "商品を全幅にする"
+        },
+        "header_mobile": {
+          "content": "モバイルのレイアウト"
+        },
+        "columns_mobile": {
+          "label": "モバイルでの列数",
+          "options__1": {
+            "label": "1列"
+          },
+          "options__2": {
+            "label": "2列"
+          }
+        },
+        "swipe_on_mobile": {
+          "label": "モバイルでスワイプを有効にする"
+        }
+      },
+      "presets": {
+        "name": "特集コレクション"
+      }
+    },
     "footer": {
       "name": "フッター",
       "blocks": {
