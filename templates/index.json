@@ -72,7 +72,7 @@
         "enable_desktop_slider": false,
         "color_scheme": "background-1",
         "image_ratio": "adapt",
-        "image_shape": "default",
+        "image_shape": "arch",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
