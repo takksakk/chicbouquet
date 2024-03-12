@@ -30,9 +30,9 @@
 
     {% render 'meta-tags' %}
 
-    {%- if settings.animations_reveal_on_scroll -%}
-      <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+
+      <script src="{{ 'animations.js' | asset_url }}"></script>
+
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>

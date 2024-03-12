@@ -806,8 +806,8 @@
         "name": "特集コレクション"
       }
     },
-    "featured-collection_c": {
-      "name": "特集コレクション_カスタム",
+    "custom-featured-collection": {
+      "name": "カスタム_特集コレクション",
       "settings": {
         "title": {
           "label": "見出し"
@@ -1264,6 +1264,171 @@
     },
     "image-with-text": {
       "name": "テキスト付き画像",
+      "settings": {
+        "image": {
+          "label": "画像"
+        },
+        "height": {
+          "options__1": {
+            "label": "画像に合わせる"
+          },
+          "options__2": {
+            "label": "小"
+          },
+          "options__3": {
+            "label": "中"
+          },
+          "label": "画像の高さ",
+          "options__4": {
+            "label": "大"
+          }
+        },
+        "layout": {
+          "options__1": {
+            "label": "右"
+          },
+          "options__2": {
+            "label": "左"
+          },
+          "label": "デスクトップ画像の配置",
+          "info": "最初の画像は、デフォルトのモバイルレイアウトです。"
+        },
+        "desktop_image_width": {
+          "options__1": {
+            "label": "小"
+          },
+          "options__2": {
+            "label": "中"
+          },
+          "options__3": {
+            "label": "大"
+          },
+          "label": "デスクトップ画像の幅",
+          "info": "画像はモバイル用に自動で最適化されます。"
+        },
+        "desktop_content_alignment": {
+          "options__1": {
+            "label": "左"
+          },
+          "options__3": {
+            "label": "右"
+          },
+          "label": "デスクトップのコンテンツアラインメント",
+          "options__2": {
+            "label": "中央"
+          }
+        },
+        "desktop_content_position": {
+          "options__1": {
+            "label": "上"
+          },
+          "options__2": {
+            "label": "中位"
+          },
+          "options__3": {
+            "label": "下"
+          },
+          "label": "デスクトップのコンテンツ位置"
+        },
+        "content_layout": {
+          "options__1": {
+            "label": "オーバーラップなし"
+          },
+          "options__2": {
+            "label": "オーバーラップ"
+          },
+          "label": "コンテンツのレイアウト"
+        },
+        "mobile_content_alignment": {
+          "options__1": {
+            "label": "左"
+          },
+          "options__3": {
+            "label": "右"
+          },
+          "label": "モバイルのコンテンツアライメント",
+          "options__2": {
+            "label": "中央"
+          }
+        }
+      },
+      "blocks": {
+        "heading": {
+          "settings": {
+            "heading": {
+              "label": "見出し"
+            }
+          },
+          "name": "見出し"
+        },
+        "text": {
+          "settings": {
+            "text": {
+              "label": "コンテンツ"
+            },
+            "text_style": {
+              "label": "テキストスタイル",
+              "options__1": {
+                "label": "本文"
+              },
+              "options__2": {
+                "label": "字幕"
+              }
+            }
+          },
+          "name": "テキスト"
+        },
+        "button": {
+          "settings": {
+            "button_label": {
+              "label": "ボタンのラベル",
+              "info": "ボタンを非表示にするには、ラベルを空白にします。"
+            },
+            "button_link": {
+              "label": "ボタンのリンク"
+            },
+            "outline_button": {
+              "label": "アウトラインボタンのスタイルを使用する"
+            }
+          },
+          "name": "ボタン"
+        },
+        "caption": {
+          "name": "キャプション",
+          "settings": {
+            "text": {
+              "label": "テキスト"
+            },
+            "text_style": {
+              "label": "テキストスタイル",
+              "options__1": {
+                "label": "サブタイトル"
+              },
+              "options__2": {
+                "label": "大文字"
+              }
+            },
+            "caption_size": {
+              "label": "テキストサイズ",
+              "options__1": {
+                "label": "小"
+              },
+              "options__2": {
+                "label": "中"
+              },
+              "options__3": {
+                "label": "大"
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "テキスト付き画像"
+      }
+    },
+    "custom-blog-post": {
+      "name": "カスタム_ブログポスト",
       "settings": {
         "image": {
           "label": "画像"
